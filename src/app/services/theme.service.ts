@@ -6,7 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class ThemeService {
   private readonly THEME_KEY = 'technote-theme';
-  private currentTheme = 'light';
+  private currentTheme = 'technote'; // Default to custom theme
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.initTheme();
@@ -16,12 +16,12 @@ export class ThemeService {
     if (isPlatformBrowser(this.platformId)) {
       // Check localStorage for saved theme
       const savedTheme = localStorage.getItem(this.THEME_KEY);
-      if (savedTheme) {
+      if (savedTheme && this.getAvailableThemes().includes(savedTheme)) {
         this.currentTheme = savedTheme;
       } else {
-        // Check system preference
+        // Check system preference for dark/light, but default to technote theme
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        this.currentTheme = prefersDark ? 'dark' : 'light';
+        this.currentTheme = prefersDark ? 'dark' : 'technote';
       }
 
       this.applyTheme(this.currentTheme);
@@ -29,6 +29,12 @@ export class ThemeService {
   }
 
   setTheme(theme: string): void {
+    // Validate theme exists before setting
+    if (!this.getAvailableThemes().includes(theme)) {
+      console.warn(`Theme "${theme}" is not available. Using default theme.`);
+      theme = 'technote';
+    }
+
     this.currentTheme = theme;
 
     if (isPlatformBrowser(this.platformId)) {
@@ -43,7 +49,9 @@ export class ThemeService {
 
   private applyTheme(theme: string): void {
     if (isPlatformBrowser(this.platformId)) {
+      // Apply theme using data-theme attribute
       document.documentElement.setAttribute('data-theme', theme);
+      console.log(`Applied theme: ${theme}`);
     }
   }
 
@@ -86,7 +94,8 @@ export class ThemeService {
       'lemonade',
       'night',
       'coffee',
-      'winter'
+      'winter',
+      'technote'
     ];
   }
 }

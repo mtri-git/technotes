@@ -1,88 +1,102 @@
 <div class="min-h-screen bg-base-100">
   <!-- Header -->
-  <header class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
-    <div class="navbar-start">
-      <div class="logo cursor-pointer" [routerLink]="['/']">
-        <h1 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          🚀 TechNote
+  <header class="navbar bg-base-100/80 backdrop-blur-md border-b border-base-300/30 shadow-lg sticky top-0 z-50 px-2 sm:px-4">
+    <div class="navbar-start lg:flex-1">
+      <div class="logo cursor-pointer flex items-center gap-2 sm:gap-3" [routerLink]="['/']">
+        <img src="/main_logo.png" alt="TechNote Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
+        <div class="hidden xs:block sm:block">
+          <h1 class="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            TechNote
+          </h1>
+          <!-- <p class="text-xs sm:text-sm text-base-content/70 hidden sm:block">Technology Documentation Hub</p> -->
+        </div>
+        <!-- Mobile-only compact title -->
+        <h1 class="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent xs:hidden sm:hidden">
+          TechNote
         </h1>
-        <p class="text-sm text-base-content/70">Technology Documentation Hub</p>
       </div>
     </div>
 
-    <div class="navbar-center hidden lg:flex">
+    <div class="navbar-center hidden lg:flex lg:flex-none">
       <ul class="menu menu-horizontal gap-2">
         <li>
           <a [routerLink]="['/']"
-             class="btn btn-ghost px-2"
+             class="btn btn-ghost px-4"
              routerLinkActive="btn-active"
              [routerLinkActiveOptions]="{exact: true}">
             Home
           </a>
         </li>
-        <li><a href="#" class="btn btn-ghost px-2">Technologies</a></li>
-        <li><a href="#" class="btn btn-ghost px-2">Categories</a></li>
-        <li><a href="#" class="btn btn-ghost px-2">Compare</a></li>
-        <li><a href="#" class="btn btn-ghost px-2">About</a></li>
+        <li><a href="#" class="btn btn-ghost px-4">Technologies</a></li>
+        <li><a href="#" class="btn btn-ghost px-4">Categories</a></li>
+        <li><a href="#" class="btn btn-ghost px-4">Compare</a></li>
+        <li><a href="#" class="btn btn-ghost px-4">About</a></li>
       </ul>
     </div>
 
-    <div class="navbar-end">
-      <!-- Theme Switcher -->
-      <app-theme-switcher></app-theme-switcher>
-
+    <div class="navbar-end lg:flex-1 lg:justify-end gap-2">
       <!-- Mobile Menu -->
       <div class="dropdown dropdown-end lg:hidden">
-        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle btn-sm sm:btn-md">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
           </svg>
         </div>
-        <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-          <li><a [routerLink]="['/']">Home</a></li>
-          <li><a href="#">Technologies</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Compare</a></li>
-          <li><a href="#">About</a></li>
+        <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100/95 backdrop-blur-md rounded-box z-[1] mt-3 w-56 p-3 shadow-lg border border-base-300/30">
+          <li><a [routerLink]="['/']" class="py-3">🏠 Home</a></li>
+          <li><a href="#" class="py-3">🛠️ Technologies</a></li>
+          <li><a href="#" class="py-3">📂 Categories</a></li>
+          <li><a href="#" class="py-3">⚖️ Compare</a></li>
+          <li><a href="#" class="py-3">ℹ️ About</a></li>
+          <li class="border-t border-base-300 mt-2 pt-2">
+            <div class="py-2">
+              <app-theme-switcher></app-theme-switcher>
+            </div>
+          </li>
         </ul>
+      </div>
+
+      <!-- Desktop Theme Switcher -->
+      <div class="hidden lg:block">
+        <app-theme-switcher></app-theme-switcher>
       </div>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="min-h-screen">
+  <main class="min-h-screen px-2 sm:px-4 lg:px-0">
     <router-outlet></router-outlet>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-base-200 text-base-content p-10">
-    <div class="grid grid-flow-col gap-4">
-      <div class="footer-section">
-        <h4 class="font-bold text-lg mb-2">TechNote</h4>
-        <p class="text-base-content/70">Your comprehensive technology documentation hub</p>
+  <footer class="footer footer-center bg-base-200 text-base-content p-4 sm:p-6 lg:p-10">
+    <div class="grid grid-flow-col gap-2 sm:gap-4">
+      <div class="footer-section text-center">
+        <h4 class="font-bold text-base sm:text-lg mb-1 sm:mb-2">TechNote</h4>
+        <p class="text-xs sm:text-sm text-base-content/70">Your comprehensive technology documentation hub</p>
       </div>
     </div>
 
-    <div class="grid grid-flow-col gap-8 text-sm">
-      <div>
-        <span class="footer-title">Categories</span>
-        <a href="#" class="link link-hover">Frontend</a>
-        <a href="#" class="link link-hover">Backend</a>
-        <a href="#" class="link link-hover">DevOps</a>
-        <a href="#" class="link link-hover">Database</a>
-        <a href="#" class="link link-hover">Cloud</a>
+    <div class="grid grid-cols-2 lg:grid-flow-col gap-4 sm:gap-8 text-xs sm:text-sm w-full max-w-md lg:max-w-none">
+      <div class="text-center lg:text-left">
+        <span class="footer-title text-sm sm:text-base">Categories</span>
+        <a href="#" class="link link-hover block">Frontend</a>
+        <a href="#" class="link link-hover block">Backend</a>
+        <a href="#" class="link link-hover block">DevOps</a>
+        <a href="#" class="link link-hover block">Database</a>
+        <a href="#" class="link link-hover block">Cloud</a>
       </div>
-      <div>
-        <span class="footer-title">Resources</span>
-        <a href="#" class="link link-hover">Documentation</a>
-        <a href="#" class="link link-hover">Tutorials</a>
-        <a href="#" class="link link-hover">Comparisons</a>
-        <a href="#" class="link link-hover">Learning Paths</a>
+      <div class="text-center lg:text-left">
+        <span class="footer-title text-sm sm:text-base">Resources</span>
+        <a href="#" class="link link-hover block">Documentation</a>
+        <a href="#" class="link link-hover block">Tutorials</a>
+        <a href="#" class="link link-hover block">Comparisons</a>
+        <a href="#" class="link link-hover block">Learning Paths</a>
       </div>
     </div>
 
-    <aside class="border-t border-base-300 pt-4 w-full text-center">
-      <p class="text-sm text-base-content/60">
+    <aside class="border-t border-base-300 pt-2 sm:pt-4 w-full text-center">
+      <p class="text-xs sm:text-sm text-base-content/60">
         &copy; 2025 TechNote. Built with Angular 20 & Daisy UI.
       </p>
     </aside>
