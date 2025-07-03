@@ -11,7 +11,8 @@ export const routes: Routes = [
   {
     path: 'technology/:id',
     component: TechDetailComponent,
-    title: 'Technology Details - TechNote'
+    title: 'Technology Details - TechNote',
+    data: { renderMode: 'client' }
   },
   {
     path: '**',

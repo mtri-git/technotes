@@ -7,7 +7,6 @@ import { ThemeSwitcherComponent } from './components/theme-switcher.component';
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule, RouterModule, ThemeSwitcherComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
 export class App {
   protected title = 'TechNote - Technology Documentation Hub';
