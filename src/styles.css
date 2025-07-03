@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Tailwind CSS and daisyUI imports */
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Custom global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}

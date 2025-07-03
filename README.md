@@ -1,8 +1,66 @@
-# Technote
+# TechNote - Technology Documentation Hub
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.5.
+TechNote is a comprehensive technology note-taking and documentation website built with Angular 20. It serves as a centralized platform for documenting, organizing, and exploring various technologies across different domains including frontend, backend, DevOps, and more.
 
-## Development server
+## 🎯 Project Purpose
+
+This application is designed to:
+- **Document Technologies**: Create detailed notes and documentation for various technologies
+- **Categorize by Domain**: Organize technologies into categories (Frontend, Backend, DevOps, etc.)
+- **Provide Learning Resources**: Serve as a reference hub for developers and tech enthusiasts
+- **Enable Easy Search**: Allow users to quickly find information about specific technologies
+- **Share Knowledge**: Create a collaborative platform for technology documentation
+
+## 🛠️ Technology Stack
+
+### Frontend Technologies Covered:
+- **React** - JavaScript library for building user interfaces
+- **Angular** - TypeScript-based web application framework
+- **Vue.js** - Progressive JavaScript framework
+- **Svelte** - Compile-time optimized framework
+- **Next.js** - React production framework
+- **Nuxt.js** - Vue.js production framework
+
+### Backend Technologies Covered:
+- **Fastify** - Fast and low overhead web framework for Node.js
+- **NestJS** - Progressive Node.js framework for building scalable server-side applications
+- **Express.js** - Minimal and flexible Node.js web application framework
+- **Koa.js** - Expressive middleware for Node.js
+- **Hapi.js** - Rich framework for building applications and services
+
+### DevOps Technologies Covered:
+- **ArgoCD** - Declarative GitOps continuous delivery tool for Kubernetes
+- **Jenkins** - Automation server for CI/CD pipelines
+- **Docker** - Containerization platform
+- **Kubernetes** - Container orchestration platform
+- **Terraform** - Infrastructure as Code tool
+- **Ansible** - Configuration management and automation tool
+- **GitHub Actions** - CI/CD platform integrated with GitHub
+
+### Database Technologies:
+- **PostgreSQL** - Advanced open source relational database
+- **MongoDB** - NoSQL document database
+- **Redis** - In-memory data store
+- **MySQL** - Popular relational database management system
+
+### Cloud Platforms:
+- **AWS** - Amazon Web Services
+- **Azure** - Microsoft Azure
+- **Google Cloud Platform (GCP)** - Google's cloud computing services
+- **Vercel** - Frontend deployment platform
+- **Netlify** - Web development platform
+
+## 🏗️ Project Architecture
+
+This Angular application follows modern best practices:
+
+- **Server-Side Rendering (SSR)** - Enhanced SEO and performance
+- **Standalone Components** - Modern Angular architecture
+- **TypeScript** - Type-safe development
+- **Responsive Design** - Mobile-first approach
+- **Component-Based Architecture** - Modular and reusable components
+
+## 🚀 Development server
 
 To start a local development server, run:
 

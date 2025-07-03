@@ -1,0 +1,87 @@
+<!-- Hero Section -->
+<section class="hero bg-gradient-to-r from-primary to-secondary min-h-[500px]">
+  <div class="hero-content text-center text-primary-content">
+    <div class="max-w-4xl">
+      <h1 class="text-5xl font-bold mb-6">Explore Modern Technologies</h1>
+      <p class="text-xl mb-8 leading-relaxed">
+        Comprehensive documentation and insights for Frontend, Backend, DevOps,
+        Database, and Cloud technologies. Make informed decisions for your next project.
+      </p>
+      <div class="join w-full max-w-md">
+        <input
+          type="text"
+          placeholder="Search technologies, frameworks, tools..."
+          class="input input-bordered join-item flex-1"
+        />
+        <button class="btn btn-primary join-item">🔍</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technology Categories -->
+<section class="py-16 bg-base-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 text-base-content">Technology Categories</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let category of categories$ | async"
+           class="card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+           [attr.data-category]="category.id">
+        <div class="card-body items-center text-center">
+          <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
+            {{ category.icon }}
+          </div>
+          <h3 class="card-title text-xl mb-2">{{ category.name }}</h3>
+          <p class="text-base-content/70 mb-4">{{ category.description }}</p>
+          <div class="card-actions">
+            <div class="badge badge-primary p-2">View Technologies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Technologies -->
+<section class="py-16 bg-base-200">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 text-base-content">Popular Technologies</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div *ngFor="let tech of popularTechnologies$ | async"
+           class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+           [routerLink]="['/technology', tech.id]">
+        <div class="card-body">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="card-title text-lg">{{ tech.name }}</h3>
+            <div class="badge badge-secondary badge-sm">
+              {{ tech.category.name }}
+            </div>
+          </div>
+          <p class="text-base-content/70 text-sm mb-4 line-clamp-3">{{ tech.shortDescription }}</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <div *ngFor="let tag of tech.tags.slice(0, 3)" class="badge badge-outline badge-xs">
+              {{ tag }}
+            </div>
+          </div>
+          <div class="card-actions justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1">
+                <span class="text-warning">⭐</span>
+                <span class="text-xs">{{ tech.popularity }}%</span>
+              </div>
+              <div *ngIf="tech.maturity" class="flex items-center gap-1">
+                <span class="text-xs">
+                  {{ tech.maturity === 'mature' ? '🏆' : tech.maturity === 'stable' ? '🚀' : '🧪' }}
+                  {{ tech.maturity | titlecase }}
+                </span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-xs group-hover:btn-secondary transition-colors">
+              Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
