@@ -25,6 +25,9 @@ export class TechDetailComponent implements OnInit {
   error: string | null = null;
 
   ngOnInit() {
+    // Scroll to top when component initializes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     this.isLoading = false; // Explicitly set loading to true at start
 
     this.technology$ = this.route.paramMap.pipe(
