@@ -25,7 +25,7 @@ export class TechDetailComponent implements OnInit {
   error: string | null = null;
 
   ngOnInit() {
-    this.isLoading = true; // Explicitly set loading to true at start
+    this.isLoading = false; // Explicitly set loading to true at start
 
     this.technology$ = this.route.paramMap.pipe(
       map(params => params.get('id')),
