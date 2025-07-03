@@ -25,9 +25,6 @@ export class TechDetailComponent implements OnInit {
   error: string | null = null;
 
   ngOnInit() {
-    // Scroll to top when component initializes
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
     this.isLoading = false; // Explicitly set loading to true at start
 
     this.technology$ = this.route.paramMap.pipe(
@@ -45,6 +42,9 @@ export class TechDetailComponent implements OnInit {
           return null;
         }
         this.error = null;
+
+        // Scroll to top when technology data changes
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
         // Load similar technologies
         this.similarTechnologies$ = this.technologyService.getSimilarTechnologies(tech.id, 3);
